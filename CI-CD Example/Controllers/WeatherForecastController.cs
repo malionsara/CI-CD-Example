@@ -29,5 +29,12 @@ namespace CI_CD_Example.Controllers
             })
             .ToArray();
         }
+
+
+        [HttpGet(Name = "GetMalion")]
+        public string GetMalion()
+        {
+            return "Malion";
+        }
     }
 }

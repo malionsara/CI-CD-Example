@@ -20,7 +20,7 @@ jobs:
           dotnet-version: '8.x'
           
       - name: Restore
-        run: dotnet restore ./CI-CD Example.sln
+        run: dotnet restore
         
       - name: Build
         run: dotnet build --configuration Release --no-restore

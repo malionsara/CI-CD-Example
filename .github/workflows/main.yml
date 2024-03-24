@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v4.0.0
+      - uses: actions/checkout@v4
 
       
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
           
@@ -23,7 +23,7 @@ jobs:
         run: dotnet restore ./CI-CD Example.sln
         
       - name: Build
-        run: dotnet build ./CI-CD Example.sln --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish ./CI-CD Example.sln --configuration Release --no-build
+        run: dotnet publish --configuration Release --no-build

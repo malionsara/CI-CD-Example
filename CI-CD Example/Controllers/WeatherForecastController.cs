@@ -32,9 +32,15 @@ namespace CI_CD_Example.Controllers
 
 
         [HttpGet(Name = "GetMalion")]
-        public string GetMalion()
+        public IEnumerable<WeatherForecast> GetMalion()
         {
-            return "Malion";
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = "Malion"
+            })
+            .ToArray();
         }
     }
 }
